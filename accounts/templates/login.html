@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="jumbotron">
+    {% for message in messages %}
+    <div class="alert alert-success" role="alert">
+        {{message}}
+      </div>
+    {% endfor %}
+    <h1 class="display-4 text-success "><b>User Login</b></h1>
+    <hr class="my-4">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Username . . ." class="form-control">
+        
+        <br>
+        <input type="password" name="password" placeholder="Password . . ." class="form-control">
+        
+        <br>
+        <input type="submit" name="submit" class="btn btn-success">
+    </form>
+    
+    <p>Don't have an account ? <a href="{% url 'register' %}">Sign Up</a></p>
+</div>
+{% endblock content %}
